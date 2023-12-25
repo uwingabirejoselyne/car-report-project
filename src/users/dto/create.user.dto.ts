@@ -8,4 +8,3 @@ export class CreateUserDto {
   @MinLength(6, { message: 'Password should be at least 6 characters long' })
   readonly password: string;
 }
-
