@@ -6,8 +6,10 @@ import {
   Param,
   Query,
   Delete,
+  Patch,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create.user.dto';
+import { updateUserDto } from './dto/create.user.update.dto';
 import { UsersService } from './users.service';
 
 @Controller('auth')
@@ -30,5 +32,9 @@ export class UsersController {
     console.log(id);
 
     return this.userService.remove(parseInt(id));
+  }
+  @Patch('/:id')
+  updateUser(@Param('id') id: string, @Body() body: updateUserDto) {
+    return this.userService.update(parseInt(id), body);
   }
 }

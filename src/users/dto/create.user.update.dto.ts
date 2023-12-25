@@ -5,7 +5,7 @@ import {
   IsNotEmpty,
   MinLength,
 } from 'class-validator';
-export class createUserUpdate {
+export class updateUserDto {
   @IsOptional()
   @IsEmail({}, { message: 'Invalid email format' })
   readonly email: string;
