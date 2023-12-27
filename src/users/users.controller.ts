@@ -7,8 +7,6 @@ import {
   Query,
   Delete,
   Patch,
-  // UseInterceptors,
-  // ClassSerializerInterceptor,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create.user.dto';
 import { updateUserDto } from './dto/create.user.update.dto';
