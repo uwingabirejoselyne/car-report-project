@@ -26,8 +26,6 @@ export class UsersController {
   @UseInterceptors(SerializeInterceptor)
   @Get('/:id')
   findUser(@Param('id') id: string) {
-    console.log('Handler is running');
-
     return this.userService.findOne(parseInt(id));
   }
 
