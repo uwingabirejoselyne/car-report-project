@@ -16,6 +16,7 @@ import { Serialize } from '../interceptors/serialize.interceptor';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
+@Serialize(UserDto)
 export class UsersController {
   constructor(
     private userService: UsersService,
@@ -25,8 +26,10 @@ export class UsersController {
   createUser(@Body() createUserDto: CreateUserDto) {
     return this.authService.signup(createUserDto.email, createUserDto.password);
   }
-
-  @Serialize(UserDto)
+  @Post('/signin')
+  signin(@Body() createUserDto: CreateUserDto) {
+    return this.authService.signup(createUserDto.email, createUserDto.password);
+  }
   @Get('/:id')
   findUser(@Param('id') id: string) {
     return this.userService.findOne(parseInt(id));
