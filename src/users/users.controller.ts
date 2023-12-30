@@ -23,9 +23,13 @@ export class UsersController {
     private userService: UsersService,
     private authService: AuthService,
   ) {}
-  @Get('/test')
-  test(@Session() session: any) {
+  @Get('/currentUser')
+  findCurrentUser(@Session() session: any) {
     return this.userService.findOne(session.userId);
+  }
+  @Post('/signout')
+  signout(@Session() session: any) {
+    session.userId = null;
   }
 
   @Post('/signup')
